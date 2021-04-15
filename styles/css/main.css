@@ -1,3 +1,9 @@
+/* Mixin to manage responsive breakpoints */
+/* Colors */
+/* Fonts */
+/* Media query breakpoints */
+@import url("https://fonts.googleapis.com/css2?family=Alata&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap");
 @font-face {
   font-family: 'icomoon';
   src: url("../../assets/fonts/icomoon.eot?j98q9b");
@@ -48,5 +54,21 @@ i {
 .i-twitter:before {
   content: "\e905";
   color: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 15px;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Josefin Sans", sans-serif;
+  background: white;
 }
 /*# sourceMappingURL=main.css.map */
