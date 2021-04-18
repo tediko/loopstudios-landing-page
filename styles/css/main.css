@@ -71,4 +71,117 @@ body {
   font-family: "Josefin Sans", sans-serif;
   background: white;
 }
+
+.kv {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../../assets/images/mobile/image-hero.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 100vh;
+  padding-top: 64px;
+}
+
+.kv__container {
+  margin: 0;
+  padding: 0 24px;
+}
+
+.kv__heading-wrapper {
+  margin-top: 125px;
+  border: 2px solid white;
+}
+
+.kv__heading {
+  font-size: 2.66rem;
+  line-height: 2.53rem;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 300;
+  padding: 24px;
+  max-width: 300px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+}
+
+.header__logo-link {
+  text-decoration: none;
+}
+
+.header__logo {
+  width: 75%;
+}
+
+.header__hamburger {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.header__hamburger:focus {
+  outline: none;
+}
+
+.header__hamburger:focus > .header__hamburger-container {
+  outline: 2px dotted white;
+}
+
+.header__hamburger.hamburger--active .header__hamburger-bars {
+  transform: rotate(225deg);
+  transition: transform 220ms 120ms ease-in-out;
+}
+
+.header__hamburger.hamburger--active .header__hamburger-bars::before {
+  top: 0;
+  transition: top 100ms ease-out;
+}
+
+.header__hamburger.hamburger--active .header__hamburger-bars::after {
+  bottom: 0;
+  transform: rotate(-90deg);
+  transition: bottom 100ms ease-out, transform 220ms 120ms ease-in-out;
+}
+
+.header__hamburger-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 35px;
+  height: 30px;
+}
+
+.header__hamburger-container:focus {
+  outline: none;
+}
+
+.header__hamburger-bars {
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background-color: white;
+  transition: transform 220ms ease-in-out;
+}
+
+.header__hamburger-bars::before, .header__hamburger-bars::after {
+  position: absolute;
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: white;
+}
+
+.header__hamburger-bars::before {
+  top: -7px;
+  transition: top 100ms 250ms ease-in, transform 220ms ease-in-out;
+}
+
+.header__hamburger-bars::after {
+  bottom: -7px;
+  transition: bottom 100ms 250ms ease-in, transform 220ms ease-in-out;
+}
 /*# sourceMappingURL=main.css.map */

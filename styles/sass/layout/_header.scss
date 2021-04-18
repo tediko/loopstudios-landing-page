@@ -1,0 +1,88 @@
+.header {
+    $root: &;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8px;
+
+    &__logo-link {
+        text-decoration: none;
+    }
+
+    &__logo {
+        width: 75%;
+    }
+
+    &__hamburger {
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+
+        &:focus {
+            outline: none;
+
+            & > .header__hamburger-container {
+                outline: 2px dotted $c-white;
+            }
+        }
+
+        &.hamburger--active {
+            #{$root}__hamburger-bars {
+                transform: rotate(225deg);
+                transition: transform 220ms 120ms ease-in-out;
+
+                &::before {
+                    top: 0;
+                    transition: top 100ms ease-out;
+                }
+
+                &::after {
+                    bottom: 0;
+                    transform: rotate(-90deg);
+                    transition: bottom 100ms ease-out,
+                        transform 220ms 120ms ease-in-out;
+                }
+            }
+        }
+    }
+
+    &__hamburger-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 35px;
+        height: 30px;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &__hamburger-bars {
+        position: absolute;
+        width: 24px;
+        height: 2px;
+        background-color: $c-white;
+        transition: transform 220ms ease-in-out;
+
+        &::before, &::after {
+            position: absolute;
+            content: '';
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: $c-white;
+        }
+
+        &::before {
+            top: -7px;
+            transition: top 100ms 250ms ease-in, transform 220ms ease-in-out;
+        }
+        
+        &::after {
+            bottom: -7px;
+            transition: bottom 100ms 250ms ease-in, transform 220ms ease-in-out;
+        }
+    }
+}
