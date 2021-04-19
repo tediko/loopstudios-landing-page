@@ -324,4 +324,39 @@ body.overflow-hidden {
   outline: 2px dotted white;
   outline-offset: 4px;
 }
+
+.about {
+  padding: 96px 24px;
+}
+
+.about__wrapper {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.about__image {
+  width: 100%;
+}
+
+.about__info {
+  text-align: center;
+  padding-top: 48px;
+}
+
+.about__heading {
+  font-size: 2.13rem;
+  line-height: 2.13rem;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.about__text {
+  font-family: "Alata", sans-serif;
+  font-size: 1rem;
+  line-height: 1.66rem;
+  color: #8c8c8c;
+}
 /*# sourceMappingURL=main.css.map */
