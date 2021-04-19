@@ -2,19 +2,43 @@
     $root: &;
     padding: 96px 24px;
 
+    @include breakpoint('lg') {
+        padding-top: 160px;
+    }
+
     &__wrapper {
+        position: relative;
         width: 100%;
         max-width: 520px;
         margin: 0 auto;
+
+        @include breakpoint('md') {
+            max-width: 1110px;
+        }
     }
 
     &__image {
         width: 100%;
+
+        @include breakpoint('md') {
+            max-width: 731px;
+        }
     }
 
     &__info {
         text-align: center;
         padding-top: 48px;
+
+        @include breakpoint('md') {
+            position: absolute;
+            bottom: 5px;
+            right: 0;
+            background: $c-white;
+            padding-top: 96px;
+            padding-left: 96px;
+            text-align: left;
+            max-width: 541px;
+        }
     }
 
     &__heading {
@@ -24,6 +48,12 @@
         font-weight: 300;
         text-transform: uppercase;
         margin-bottom: 16px;
+
+        @include breakpoint('md') {
+            font-size: 3.2rem;
+            line-height: 3.2rem;
+            margin-bottom: 26px;
+        }
     }
 
     &__text {
