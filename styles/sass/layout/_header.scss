@@ -10,22 +10,12 @@
     }
 
     &__logo {
+        position: relative;
         width: 75%;
+        z-index: 2;
     }
 
-    &__hamburger {
-        border: 0;
-        background: transparent;
-        cursor: pointer;
-
-        &:focus {
-            outline: none;
-
-            & > .header__hamburger-container {
-                outline: 2px dotted $c-white;
-            }
-        }
-
+    &__nav {
         &.hamburger--active {
             #{$root}__hamburger-bars {
                 transform: rotate(225deg);
@@ -44,13 +34,42 @@
                 }
             }
         }
+
+        &.nav--open {
+            #{$root}__nav-list {
+                display: block;
+                animation: navin 600ms ease-in forwards;
+            }
+        }
+
+        &.nav--close {
+            #{$root}__nav-list {
+                animation: navout 600ms ease-in-out;
+            }
+        }
+    }
+
+    &__hamburger {
+        position: relative;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+        z-index: 2;
+
+        &:focus {
+            outline: none;
+
+            & > .header__hamburger-container {
+                outline: 2px dotted $c-white;
+            }
+        }
     }
 
     &__hamburger-container {
         position: relative;
         display: flex;
         align-items: center;
-        justify-content: flex-end;
+        justify-content: center;
         width: 35px;
         height: 30px;
 
@@ -83,6 +102,37 @@
         &::after {
             bottom: -7px;
             transition: bottom 100ms 250ms ease-in, transform 220ms ease-in-out;
+        }
+    }
+
+    &__nav-list {
+        position: absolute;
+        display: none;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        padding-top: 220px;
+        padding-left: 24px;
+        list-style: none;
+        background: $c-black;
+    }
+
+    &__nav-item {
+        &:not(:last-child) {
+            margin-bottom: 24px;
+        }
+    }
+
+    &__nav-link {
+        font-size: 1.6rem;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: $c-white;
+
+        &:focus {
+            outline: 2px dotted $c-white;
+            outline-offset: 4px;
         }
     }
 }
