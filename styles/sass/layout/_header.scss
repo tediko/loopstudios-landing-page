@@ -5,13 +5,18 @@
     justify-content: space-between;
     padding: 0 8px;
 
+    @include breakpoint('lg') {
+        padding: 0;
+    }
+
     &__logo-link {
+        display: flex;
         text-decoration: none;
     }
 
     &__logo {
         position: relative;
-        width: 75%;
+        width: clamp(9.6rem, 20vw, 12.8rem);
         z-index: 2;
     }
 
@@ -62,6 +67,10 @@
             & > .header__hamburger-container {
                 outline: 2px dotted $c-white;
             }
+        }
+
+        @include breakpoint('md') {
+            display: none;
         }
     }
 
@@ -116,19 +125,56 @@
         padding-left: 24px;
         list-style: none;
         background: $c-black;
+
+        @include breakpoint('md') {
+            position: relative;
+            display: flex;
+            background: transparent;
+            padding: 0;
+        }
     }
 
     &__nav-item {
         &:not(:last-child) {
             margin-bottom: 24px;
+
+            @include breakpoint('md') {
+                margin-bottom: 0;
+                margin-right: 32px;
+            }
         }
     }
 
     &__nav-link {
+        position: relative;
         font-size: 1.6rem;
         text-transform: uppercase;
         text-decoration: none;
         color: $c-white;
+
+        @include breakpoint('md') {
+            font-family: $ff-secondary;
+            text-transform: unset;
+            font-size: 1rem;
+
+            &::before {
+                position: absolute;
+                content: '';
+                bottom: -8px;
+                left: 50%;
+                width: 0;
+                height: 2px;
+                transform: translateX(-50%);
+                background: $c-white;
+                transition: width 200ms ease-in;
+            }
+
+            &:hover {
+                &::before {
+                    width: 25px;
+                }
+            }
+        }
 
         &:focus {
             outline: 2px dotted $c-white;
