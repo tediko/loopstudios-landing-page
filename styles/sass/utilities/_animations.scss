@@ -1,0 +1,17 @@
+@keyframes navin {
+    0% {
+        clip-path: circle(0% at 0 100%);
+    }
+    100% {
+        clip-path: circle(150% at 0 100%);
+    }
+}
+
+@keyframes navout {
+    0% {
+        clip-path: circle(150% at 0 100%);
+    }
+    100% {
+        clip-path: circle(0% at 0 100%);
+    }
+}
