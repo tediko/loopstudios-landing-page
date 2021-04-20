@@ -57,8 +57,41 @@
     }
 
     &__gallery-card {
+        position: relative;
         overflow: hidden;
 
+        @include breakpoint('md') {
+            &:hover {
+                &::before {
+                    opacity: 1;
+                }
+    
+                #{$root}__gallery-figure::after {
+                    animation: card-shine 1s;
+                }
+    
+                #{$root}__gallery-image {
+                    transform: scale(1.05) rotateZ(1deg);
+                }
+
+                #{$root}__gallery-caption {
+                    color: $c-black;
+                }
+            }
+
+            &::before {
+                position: absolute;
+                content: '';
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background:rgba(255, 255, 255, 0.7);
+                opacity: 0;
+                transition: opacity 600ms ease-in;
+                z-index: 1;
+            }
+        }
         // Select .creations__gallery-figure in 4th card
         @include breakpoint('lg') {
             &:nth-child(4) #{$root}__gallery-caption {
@@ -79,12 +112,29 @@
 
         @include breakpoint('md') {
             max-height: 160px;
+
+            // shine effect for hover
+            &::after {
+                position: absolute;
+                display: block;
+                content: '';
+                top: 0;
+                left: -90%;
+                width: 50%;
+                height: 100%;
+                background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
+                background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
+                -webkit-transform: skewX(-25deg);
+                transform: skewX(-25deg);
+                z-index: 2;
+            }
         }
 
         @include breakpoint('lg') {
             max-height: 450px;
         }
 
+        // shadow gradient on figure
         &::before {
             position: absolute;
             content: "";
@@ -110,6 +160,7 @@
         color: $c-white;
         width: 128px;
         z-index: 5;
+        transition: color 400ms ease-in;
 
         @include breakpoint('lg') {
             bottom: 32px;
@@ -124,9 +175,12 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        transform: scale(1);
+        transition: transform 500ms ease-in;
     }
 
     &__btn {
+        position: relative;
         border: 1px solid $c-black;
         background: none;
         padding: 10px 38px;
@@ -137,11 +191,34 @@
         letter-spacing: 5px;
         justify-self: center;
         cursor: pointer;
-        transition: background 250ms ease-in, color 250ms ease-in;
+        transition: background 350ms ease-in, color 350ms ease-in;
+        z-index: 1;
+        overflow: hidden;
 
         @include breakpoint('md') {
             grid-area: btn;
             justify-self: end;
+
+            &::before {
+                position: absolute;
+                content: '';
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                transform: scaleX(0);
+                transform-origin: left;
+                background: $c-black;
+                transition: transform 250ms ease-in;
+                z-index: -1;
+            }
+
+            &:hover {
+                &::before {
+                    transform: scaleX(1.1);
+                }
+                color: $c-white;
+            }
         }
 
         &:focus {
