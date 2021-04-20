@@ -399,4 +399,101 @@ body.overflow-hidden {
   line-height: 1.66rem;
   color: #8c8c8c;
 }
+
+.creations {
+  padding: 0 24px;
+}
+
+.creations__wrapper {
+  display: grid;
+  grid-gap: 32px;
+  width: 100%;
+  max-width: 1110px;
+  margin: 0 auto;
+}
+
+.creations__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.creations__heading {
+  font-size: clamp(2.13rem, 5vw, 3.2rem);
+  text-transform: uppercase;
+  font-family: "Josefin Sans", sans-serif;
+  line-height: 2.66rem;
+  font-weight: 300;
+  text-align: center;
+}
+
+.creations__gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  grid-gap: 24px;
+  margin-top: 16px;
+}
+
+.creations__gallery-card {
+  overflow: hidden;
+}
+
+.creations__gallery-card:focus {
+  outline: 2px dotted black;
+  outline-offset: 2px;
+}
+
+.creations__gallery-figure {
+  position: relative;
+  height: 100%;
+  max-height: 120px;
+}
+
+.creations__gallery-figure::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.4), transparent);
+}
+
+.creations__gallery-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  color: white;
+  width: 128px;
+  z-index: 5;
+}
+
+.creations__gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.creations__btn {
+  border: 1px solid black;
+  background: none;
+  padding: 10px 38px;
+  font-size: 0.93rem;
+  font-family: "Alata", sans-serif;
+  text-transform: uppercase;
+  color: black;
+  letter-spacing: 5px;
+  justify-self: center;
+  cursor: pointer;
+  transition: background 250ms ease-in, color 250ms ease-in;
+}
+
+.creations__btn:focus {
+  background: black;
+  color: white;
+  outline: none;
+}
 /*# sourceMappingURL=main.css.map */
