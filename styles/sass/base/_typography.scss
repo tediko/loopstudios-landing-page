@@ -14,5 +14,11 @@ body {
         position: fixed;
         width: 100vw;
         height: 100vh;
+
+        @include breakpoint('md') {
+            position: relative;
+            width: unset;
+            height: unset;
+        }
     }
 }

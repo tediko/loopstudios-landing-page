@@ -102,6 +102,14 @@ body.overflow-hidden {
   height: 100vh;
 }
 
+@media (min-width: 769px) {
+  body.overflow-hidden {
+    position: relative;
+    width: unset;
+    height: unset;
+  }
+}
+
 .kv {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../../assets/images/mobile/image-hero.jpg");
   background-repeat: no-repeat;
@@ -195,6 +203,12 @@ body.overflow-hidden {
 .header__nav.nav--open .header__nav-list {
   display: block;
   animation: navin 600ms ease-in forwards;
+}
+
+@media (min-width: 769px) {
+  .header__nav.nav--open .header__nav-list {
+    display: flex;
+  }
 }
 
 .header__nav.nav--close .header__nav-list {

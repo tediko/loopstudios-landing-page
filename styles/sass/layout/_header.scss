@@ -44,6 +44,10 @@
             #{$root}__nav-list {
                 display: block;
                 animation: navin 600ms ease-in forwards;
+
+                @include breakpoint('md') {
+                    display: flex;
+                }
             }
         }
 
