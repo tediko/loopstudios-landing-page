@@ -402,6 +402,14 @@ body.overflow-hidden {
 
 .creations {
   padding: 0 24px;
+  margin-bottom: 30px;
+}
+
+@media (min-width: 769px) {
+  .creations {
+    margin-top: 93px;
+    margin-bottom: 183px;
+  }
 }
 
 .creations__wrapper {
@@ -412,10 +420,16 @@ body.overflow-hidden {
   margin: 0 auto;
 }
 
-.creations__info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+@media (min-width: 769px) {
+  .creations__wrapper {
+    grid-template-areas: "heading btn" "card card";
+  }
+}
+
+@media (min-width: 1025px) {
+  .creations__wrapper {
+    grid-gap: 80px;
+  }
 }
 
 .creations__heading {
@@ -427,6 +441,13 @@ body.overflow-hidden {
   text-align: center;
 }
 
+@media (min-width: 769px) {
+  .creations__heading {
+    grid-area: heading;
+    text-align: left;
+  }
+}
+
 .creations__gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
@@ -434,8 +455,29 @@ body.overflow-hidden {
   margin-top: 16px;
 }
 
+@media (min-width: 769px) {
+  .creations__gallery {
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    grid-area: card;
+    grid-gap: 30px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .creations__gallery {
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 0;
+  }
+}
+
 .creations__gallery-card {
   overflow: hidden;
+}
+
+@media (min-width: 1025px) {
+  .creations__gallery-card:nth-child(4) .creations__gallery-caption {
+    width: 128px;
+  }
 }
 
 .creations__gallery-card:focus {
@@ -449,6 +491,18 @@ body.overflow-hidden {
   max-height: 120px;
 }
 
+@media (min-width: 769px) {
+  .creations__gallery-figure {
+    max-height: 160px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .creations__gallery-figure {
+    max-height: 450px;
+  }
+}
+
 .creations__gallery-figure::before {
   position: absolute;
   content: "";
@@ -457,6 +511,12 @@ body.overflow-hidden {
   width: 100%;
   height: 100%;
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.4), transparent);
+}
+
+@media (min-width: 1025px) {
+  .creations__gallery-figure::before {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
+  }
 }
 
 .creations__gallery-caption {
@@ -469,6 +529,16 @@ body.overflow-hidden {
   color: white;
   width: 128px;
   z-index: 5;
+}
+
+@media (min-width: 1025px) {
+  .creations__gallery-caption {
+    bottom: 32px;
+    left: 40px;
+    font-size: 2.13rem;
+    line-height: 2.13rem;
+    width: 168px;
+  }
 }
 
 .creations__gallery-image {
@@ -489,6 +559,13 @@ body.overflow-hidden {
   justify-self: center;
   cursor: pointer;
   transition: background 250ms ease-in, color 250ms ease-in;
+}
+
+@media (min-width: 769px) {
+  .creations__btn {
+    grid-area: btn;
+    justify-self: end;
+  }
 }
 
 .creations__btn:focus {
