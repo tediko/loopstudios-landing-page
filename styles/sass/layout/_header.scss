@@ -123,8 +123,8 @@
         display: none;
         top: 0;
         left: 0;
-        bottom: 0;
-        right: 0;
+        width: 100vw;
+        height: 100vh;
         padding-top: 220px;
         padding-left: 24px;
         list-style: none;
@@ -135,6 +135,8 @@
             display: flex;
             background: transparent;
             padding: 0;
+            width: unset;
+            height: unset;
         }
     }
 

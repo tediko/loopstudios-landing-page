@@ -1,11 +1,13 @@
 .kv {
     $root: &;
+    position: relative;
     background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../../assets/images/mobile/image-hero.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
     max-height: 650px;
     padding: 64px 24px 0 24px;
+    z-index: 10;
 
     @include breakpoint('md') {
         background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../../assets/images/desktop/image-hero.jpg');

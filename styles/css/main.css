@@ -111,12 +111,14 @@ body.overflow-hidden {
 }
 
 .kv {
+  position: relative;
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../../assets/images/mobile/image-hero.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
   max-height: 650px;
   padding: 64px 24px 0 24px;
+  z-index: 10;
 }
 
 @media (min-width: 769px) {
@@ -282,8 +284,8 @@ body.overflow-hidden {
   display: none;
   top: 0;
   left: 0;
-  bottom: 0;
-  right: 0;
+  width: 100vw;
+  height: 100vh;
   padding-top: 220px;
   padding-left: 24px;
   list-style: none;
@@ -296,6 +298,8 @@ body.overflow-hidden {
     display: flex;
     background: transparent;
     padding: 0;
+    width: unset;
+    height: unset;
   }
 }
 
