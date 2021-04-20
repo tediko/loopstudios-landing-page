@@ -15,3 +15,9 @@
         clip-path: circle(0% at 0 100%);
     }
 }
+
+@keyframes card-shine {
+    100% {
+        left: 125%;
+    }
+}
