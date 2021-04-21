@@ -511,6 +511,9 @@ body.overflow-hidden {
   .creations__gallery-card:hover .creations__gallery-figure::after {
     animation: card-shine 1s;
   }
+  .creations__gallery-card:hover .creations__gallery-figure::before {
+    opacity: 0;
+  }
   .creations__gallery-card:hover .creations__gallery-image {
     transform: scale(1.05) rotateZ(1deg);
   }
@@ -581,6 +584,7 @@ body.overflow-hidden {
   height: 100%;
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.4), transparent);
   z-index: 1;
+  transition: opacity 250ms ease-in;
 }
 
 @media (min-width: 1025px) {

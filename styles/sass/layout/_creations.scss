@@ -69,6 +69,10 @@
                 #{$root}__gallery-figure::after {
                     animation: card-shine 1s;
                 }
+
+                #{$root}__gallery-figure::before {
+                    opacity: 0;
+                }
     
                 #{$root}__gallery-image {
                     transform: scale(1.05) rotateZ(1deg);
@@ -144,7 +148,8 @@
             height: 100%;
             background-image: linear-gradient(to right, rgba(0, 0, 0, 0.4), transparent);
             z-index: 1;
-            
+            transition: opacity 250ms ease-in;
+
             @include breakpoint('lg') {
                 background-image: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
             }
