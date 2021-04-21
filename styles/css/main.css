@@ -631,6 +631,10 @@ body.overflow-hidden {
   overflow: hidden;
 }
 
+.creations__btn--desktop {
+  display: none;
+}
+
 @media (min-width: 769px) {
   .creations__btn {
     grid-area: btn;
@@ -654,6 +658,12 @@ body.overflow-hidden {
   }
   .creations__btn:hover::before {
     transform: scaleX(1.1);
+  }
+  .creations__btn--mobile {
+    display: none;
+  }
+  .creations__btn--desktop {
+    display: block;
   }
 }
 
