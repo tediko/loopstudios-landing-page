@@ -1,17 +1,35 @@
 .footer {
     $root: &;
     margin-top: 85px;
+    background: $c-black;
+    padding: 56px 24px;
+
+    @include breakpoint('md') {
+        padding: 45px 55px;
+    }
 
     &__wrapper {
         display: grid;
         grid-template-columns: 1fr;
         justify-items: center;
-        background: $c-black;
-        padding: 56px 24px;
+
+        width: 100%;
+        max-width: 1110px;
+        margin: 0 auto;
+
+        @include breakpoint('md') {
+            grid-template-areas: "logo socials" "nav copy";
+            grid-gap: 25px;
+            justify-items: unset;
+            justify-content: space-between;
+        }
+    }
+
+    &__logo {
+        display: flex;
     }
 
     &__logo-link {
-        display: flex;
         text-decoration: none;
 
         &:focus {
@@ -24,12 +42,24 @@
         width: 144px;
     }
 
+    &__nav {
+        margin-top: 35px;
+
+        @include breakpoint('md') {
+            grid-area: nav;
+            margin-top: 0;
+        }
+    }
+
     &__nav-list {
         display: flex;
         flex-flow: column;
         align-items: center;
         list-style: none;
-        margin-top: 35px;
+
+        @include breakpoint('md') {
+            flex-flow: row;
+        }
     }
 
     &__nav-item {
@@ -37,6 +67,15 @@
         
         &:not(:last-child) {
             margin-bottom: 20px;
+
+            @include breakpoint('md') {
+                margin-bottom: 0;
+                margin-right: 25px;
+            }
+
+            @include breakpoint('lg') {
+                margin-right: 33px;
+            }
         }
     }
     
@@ -55,6 +94,12 @@
     &__socials {
         display: flex;
         margin-top: 50px;
+
+        @include breakpoint('md') {
+            grid-area: socials;
+            margin-top: 0;
+            justify-self: end;
+        }
     }
 
     &__socials-link {
@@ -73,9 +118,14 @@
     }
 
     &__copyrights {
-        margin-top: 14px;
         color: $c-gray-very-dark;
         font-family: $ff-secondary;
         font-size: 1rem;
+        margin-top: 14px;
+
+        @include breakpoint('md') {
+            grid-area: copy;
+            margin-top: 0;
+        }
     }
 }

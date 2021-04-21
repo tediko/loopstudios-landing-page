@@ -686,18 +686,39 @@ body.overflow-hidden {
 
 .footer {
   margin-top: 85px;
+  background: black;
+  padding: 56px 24px;
+}
+
+@media (min-width: 769px) {
+  .footer {
+    padding: 45px 55px;
+  }
 }
 
 .footer__wrapper {
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;
-  background: black;
-  padding: 56px 24px;
+  width: 100%;
+  max-width: 1110px;
+  margin: 0 auto;
+}
+
+@media (min-width: 769px) {
+  .footer__wrapper {
+    grid-template-areas: "logo socials" "nav copy";
+    grid-gap: 25px;
+    justify-items: unset;
+    justify-content: space-between;
+  }
+}
+
+.footer__logo {
+  display: flex;
 }
 
 .footer__logo-link {
-  display: flex;
   text-decoration: none;
 }
 
@@ -710,12 +731,28 @@ body.overflow-hidden {
   width: 144px;
 }
 
+.footer__nav {
+  margin-top: 35px;
+}
+
+@media (min-width: 769px) {
+  .footer__nav {
+    grid-area: nav;
+    margin-top: 0;
+  }
+}
+
 .footer__nav-list {
   display: flex;
   flex-flow: column;
   align-items: center;
   list-style: none;
-  margin-top: 35px;
+}
+
+@media (min-width: 769px) {
+  .footer__nav-list {
+    flex-flow: row;
+  }
 }
 
 .footer__nav-item {
@@ -724,6 +761,19 @@ body.overflow-hidden {
 
 .footer__nav-item:not(:last-child) {
   margin-bottom: 20px;
+}
+
+@media (min-width: 769px) {
+  .footer__nav-item:not(:last-child) {
+    margin-bottom: 0;
+    margin-right: 25px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .footer__nav-item:not(:last-child) {
+    margin-right: 33px;
+  }
 }
 
 .footer__nav-link {
@@ -743,6 +793,14 @@ body.overflow-hidden {
   margin-top: 50px;
 }
 
+@media (min-width: 769px) {
+  .footer__socials {
+    grid-area: socials;
+    margin-top: 0;
+    justify-self: end;
+  }
+}
+
 .footer__socials-link {
   display: flex;
   text-decoration: none;
@@ -759,9 +817,16 @@ body.overflow-hidden {
 }
 
 .footer__copyrights {
-  margin-top: 14px;
   color: dimgray;
   font-family: "Alata", sans-serif;
   font-size: 1rem;
+  margin-top: 14px;
+}
+
+@media (min-width: 769px) {
+  .footer__copyrights {
+    grid-area: copy;
+    margin-top: 0;
+  }
 }
 /*# sourceMappingURL=main.css.map */
