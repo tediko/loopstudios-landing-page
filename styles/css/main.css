@@ -180,6 +180,11 @@ body.overflow-hidden {
   text-decoration: none;
 }
 
+.header__logo-link:focus {
+  outline: 2px dotted white;
+  outline-offset: 4px;
+}
+
 .header__logo {
   position: relative;
   width: clamp(9.6rem, 20vw, 12.8rem);

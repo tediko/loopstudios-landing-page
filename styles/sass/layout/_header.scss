@@ -12,6 +12,11 @@
     &__logo-link {
         display: flex;
         text-decoration: none;
+
+        &:focus {
+            outline: 2px dotted $c-white;
+            outline-offset: 4px;
+        }
     }
 
     &__logo {
