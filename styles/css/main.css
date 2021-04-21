@@ -677,4 +677,85 @@ body.overflow-hidden {
   color: white;
   outline: none;
 }
+
+.footer {
+  margin-top: 85px;
+}
+
+.footer__wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  background: black;
+  padding: 56px 24px;
+}
+
+.footer__logo-link {
+  display: flex;
+  text-decoration: none;
+}
+
+.footer__logo-link:focus {
+  outline: 2px dotted white;
+  outline-offset: 4px;
+}
+
+.footer__logo-img {
+  width: 144px;
+}
+
+.footer__nav-list {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  list-style: none;
+  margin-top: 35px;
+}
+
+.footer__nav-item {
+  position: relative;
+}
+
+.footer__nav-item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.footer__nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  font-family: "Alata", sans-serif;
+}
+
+.footer__nav-link:focus {
+  outline: 2px dotted white;
+  outline-offset: 4px;
+}
+
+.footer__socials {
+  display: flex;
+  margin-top: 50px;
+}
+
+.footer__socials-link {
+  display: flex;
+  text-decoration: none;
+  font-size: 1.6rem;
+}
+
+.footer__socials-link:not(:last-child) {
+  margin-right: 16px;
+}
+
+.footer__socials-link:focus {
+  outline: 2px dotted white;
+  outline-offset: 4px;
+}
+
+.footer__copyrights {
+  margin-top: 14px;
+  color: dimgray;
+  font-family: "Alata", sans-serif;
+  font-size: 1rem;
+}
 /*# sourceMappingURL=main.css.map */
