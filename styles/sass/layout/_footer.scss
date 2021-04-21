@@ -80,10 +80,31 @@
     }
     
     &__nav-link {
+        position: relative;
         color: $c-white;
         text-decoration: none;
         font-size: 1rem;
         font-family: $ff-secondary;
+
+        @include breakpoint('md') {
+            &:hover {
+                &::before {
+                    width: 25px;
+                }
+            }
+
+            &::before {
+                position: absolute;
+                content: '';
+                bottom: -8px;
+                left: 50%;
+                width: 0;
+                height: 2px;
+                transform: translateX(-50%);
+                background: $c-white;
+                transition: width 250ms ease-in-out;
+            }
+        }
 
         &:focus {
             outline: 2px dotted $c-white;
@@ -103,9 +124,34 @@
     }
 
     &__socials-link {
+        position: relative;
         display: flex;
         text-decoration: none;
         font-size: 1.6rem;
+
+        @include breakpoint('md') {
+            &:hover {
+                #{$root}__socials-icon {
+                    animation: icon-hover 550ms ease-in;
+                }
+                
+                &::before {
+                    width: 100%;
+                }
+            }
+            
+            &::before {
+                position: absolute;
+                content: '';
+                bottom: -8px;
+                left: 50%;
+                width: 0;
+                height: 2px;
+                transform: translateX(-50%);
+                background: $c-white;
+                transition: width 250ms ease-in-out;
+            }
+        }
 
         &:not(:last-child) {
             margin-right: 16px;

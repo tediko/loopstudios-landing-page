@@ -28,6 +28,21 @@
   }
 }
 
+@keyframes icon-hover {
+  0% {
+    transform: rotateZ(0);
+  }
+  30% {
+    transform: rotateZ(10deg);
+  }
+  60% {
+    transform: rotateZ(-10deg);
+  }
+  100% {
+    transform: rotateZ(0);
+  }
+}
+
 @font-face {
   font-family: 'icomoon';
   src: url("../../assets/fonts/icomoon.eot?j98q9b");
@@ -777,10 +792,28 @@ body.overflow-hidden {
 }
 
 .footer__nav-link {
+  position: relative;
   color: white;
   text-decoration: none;
   font-size: 1rem;
   font-family: "Alata", sans-serif;
+}
+
+@media (min-width: 769px) {
+  .footer__nav-link:hover::before {
+    width: 25px;
+  }
+  .footer__nav-link::before {
+    position: absolute;
+    content: '';
+    bottom: -8px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    transform: translateX(-50%);
+    background: white;
+    transition: width 250ms ease-in-out;
+  }
 }
 
 .footer__nav-link:focus {
@@ -802,9 +835,30 @@ body.overflow-hidden {
 }
 
 .footer__socials-link {
+  position: relative;
   display: flex;
   text-decoration: none;
   font-size: 1.6rem;
+}
+
+@media (min-width: 769px) {
+  .footer__socials-link:hover .footer__socials-icon {
+    animation: icon-hover 550ms ease-in;
+  }
+  .footer__socials-link:hover::before {
+    width: 100%;
+  }
+  .footer__socials-link::before {
+    position: absolute;
+    content: '';
+    bottom: -8px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    transform: translateX(-50%);
+    background: white;
+    transition: width 250ms ease-in-out;
+  }
 }
 
 .footer__socials-link:not(:last-child) {
