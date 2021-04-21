@@ -21,3 +21,19 @@
         left: 125%;
     }
 }
+
+@keyframes icon-hover {
+    0% {
+        transform: rotateZ(0);
+    }
+    30% {
+        transform: rotateZ(10deg);
+    }
+    60% {
+        transform: rotateZ(-10deg);
+    }
+
+    100% {
+        transform: rotateZ(0);
+    }
+}
