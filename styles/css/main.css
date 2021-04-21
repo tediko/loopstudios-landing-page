@@ -723,7 +723,7 @@ body.overflow-hidden {
 @media (min-width: 769px) {
   .footer__wrapper {
     grid-template-areas: "logo socials" "nav copy";
-    grid-gap: 25px;
+    grid-gap: 21px;
     justify-items: unset;
     justify-content: space-between;
   }

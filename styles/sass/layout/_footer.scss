@@ -19,7 +19,7 @@
 
         @include breakpoint('md') {
             grid-template-areas: "logo socials" "nav copy";
-            grid-gap: 25px;
+            grid-gap: 21px;
             justify-items: unset;
             justify-content: space-between;
         }
@@ -134,7 +134,7 @@
                 #{$root}__socials-icon {
                     animation: icon-hover 550ms ease-in;
                 }
-                
+
                 &::before {
                     width: 100%;
                 }
