@@ -680,7 +680,8 @@ body.overflow-hidden {
 .creations__btn:focus {
   background: black;
   color: white;
-  outline: none;
+  outline: 2px dotted black;
+  outline-offset: 4px;
 }
 
 .footer {

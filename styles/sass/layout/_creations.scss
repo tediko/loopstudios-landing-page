@@ -242,7 +242,8 @@
         &:focus {
             background: $c-black;
             color: $c-white;
-            outline: none;
+            outline: 2px dotted $c-black;
+            outline-offset: 4px;
         }
     }
 }
