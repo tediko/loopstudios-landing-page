@@ -59,6 +59,7 @@
     &__gallery-card {
         position: relative;
         overflow: hidden;
+        opacity: 0;
 
         @include breakpoint('md') {
             &:hover {
@@ -107,6 +108,22 @@
             outline: 2px dotted $c-black;
             outline-offset: 2px;
         }
+
+        &.card-anim {
+            animation: card-slide-mobile 700ms ease-in forwards;
+            
+            @include breakpoint('md') {
+                animation: card-slide-desktop 700ms ease-in forwards;
+            }
+        }
+
+        /* Tone down the animation to avoid vestibular motion triggers */
+        @media (prefers-reduced-motion) {
+            &.card-anim {
+              animation-name: dissolve;
+              opacity: 1;
+            }
+          }
     }
 
     &__gallery-figure {

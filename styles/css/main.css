@@ -43,6 +43,26 @@
   }
 }
 
+@keyframes card-slide-mobile {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes card-slide-desktop {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @font-face {
   font-family: 'icomoon';
   src: url("../../assets/fonts/icomoon.eot?j98q9b");
@@ -517,6 +537,8 @@ body.overflow-hidden {
 .creations__gallery-card {
   position: relative;
   overflow: hidden;
+  opacity: 0;
+  /* Tone down the animation to avoid vestibular motion triggers */
 }
 
 @media (min-width: 769px) {
@@ -558,6 +580,23 @@ body.overflow-hidden {
 .creations__gallery-card:focus {
   outline: 2px dotted black;
   outline-offset: 2px;
+}
+
+.creations__gallery-card.card-anim {
+  animation: card-slide-mobile 700ms ease-in forwards;
+}
+
+@media (min-width: 769px) {
+  .creations__gallery-card.card-anim {
+    animation: card-slide-desktop 700ms ease-in forwards;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .creations__gallery-card.card-anim {
+    animation-name: dissolve;
+    opacity: 1;
+  }
 }
 
 .creations__gallery-figure {
