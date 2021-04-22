@@ -9,15 +9,11 @@
     background-position: center;
     height: 100vh;
     max-height: 650px;
-    padding: 64px 24px 0 24px;
+    padding: 91px 24px 0 24px;
     z-index: 10;
 
     @include breakpoint('md') {
         background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../../assets/images/desktop/image-hero.jpg');
-    }
-
-    &.nav-scroll {
-        padding-top: 96px;
     }
 
     &__container {

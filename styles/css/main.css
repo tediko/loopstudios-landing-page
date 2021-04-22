@@ -73,18 +73,6 @@ body {
   font-family: "Josefin Sans", sans-serif;
   background: white;
 }
-body.overflow-hidden {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-}
-@media (min-width: 769px) {
-  body.overflow-hidden {
-    position: relative;
-    width: unset;
-    height: unset;
-  }
-}
 
 @font-face {
   font-family: "icomoon";
@@ -145,16 +133,13 @@ i {
   background-position: center;
   height: 100vh;
   max-height: 650px;
-  padding: 64px 24px 0 24px;
+  padding: 91px 24px 0 24px;
   z-index: 10;
 }
 @media (min-width: 769px) {
   .kv {
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../../assets/images/desktop/image-hero.jpg");
   }
-}
-.kv.nav-scroll {
-  padding-top: 96px;
 }
 .kv__container {
   max-width: 1110px;
@@ -187,12 +172,24 @@ i {
   }
 }
 
+.header {
+  position: absolute;
+  padding: 32px 24px 0 24px;
+  z-index: 20;
+  width: 100%;
+}
+@media (min-width: 769px) {
+  .header {
+    padding: 64px 24px 0 24px;
+  }
+}
 .header.nav-scroll {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   background: black;
+  padding-top: 0;
 }
 .header.nav-scroll .header__container {
   padding: 15px 8px;
