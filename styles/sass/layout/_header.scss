@@ -2,13 +2,30 @@
 
 .header {
     $root: &;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 8px;
 
-    @include breakpoint('lg') {
-        padding: 0;
+    &.nav-scroll {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: $c-black;
+
+        #{$root}__container {
+            padding: 15px 8px;
+        }
+    }
+
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 8px;
+
+        @include breakpoint('md') {
+            padding: 0;
+            max-width: 1110px;
+            margin: 0 auto;
+        }
     }
 
     &__logo-link {
