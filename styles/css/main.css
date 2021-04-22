@@ -395,7 +395,7 @@ i {
 @media (min-width: 769px) {
   .about__info {
     position: absolute;
-    bottom: 5px;
+    bottom: 4px;
     right: 0;
     background: white;
     padding-top: 96px;
