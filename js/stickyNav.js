@@ -63,7 +63,6 @@ export default class StickyNav {
                         });
 
                         this.header.classList.add(`${this.selectors.activeClass}`);
-                        this.sectionKv.classList.add(`${this.selectors.activeClass}`);
                     } else {
                         this.animNavOut = this.header.animate(this.animations.fadeOut, {
                             duration: 300,
@@ -71,7 +70,6 @@ export default class StickyNav {
 
                         this.animNavOut.onfinish = () => {
                             this.header.classList.remove(`${this.selectors.activeClass}`);
-                            this.sectionKv.classList.remove(`${this.selectors.activeClass}`);
                         }
                     }
                 })
