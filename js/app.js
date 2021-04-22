@@ -3,5 +3,5 @@ import LazyAnimations from './lazyAnimations.js';
 import StickyNav from './stickyNav.js';
 
 new ToggleMenu();
-/* new LazyAnimations(); */
+new LazyAnimations();
 new StickyNav();
