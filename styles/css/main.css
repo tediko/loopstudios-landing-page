@@ -489,7 +489,7 @@ i {
 .creations__gallery-card {
   position: relative;
   overflow: hidden;
-  opacity: 0;
+  opacity: 1;
   /* Tone down the animation to avoid vestibular motion triggers */
 }
 @media (min-width: 769px) {

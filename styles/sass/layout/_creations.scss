@@ -61,7 +61,7 @@
     &__gallery-card {
         position: relative;
         overflow: hidden;
-        opacity: 0;
+        opacity: 1;
 
         @include breakpoint('md') {
             &:hover {
