@@ -36,7 +36,10 @@ export default class ToggleMenu {
     show() {
         this.hamburger.style.pointerEvents = "none";
 
-        this.body.classList.add('overflow-hidden');
+        // When the menu is shown, we want a fixed body
+        this.body.style.top = `-${window.scrollY}px`;
+        this.body.style.position = 'fixed';
+
         this.nav.classList.add('hamburger--active');
         this.nav.classList.add('nav--open');
 
@@ -53,7 +56,12 @@ export default class ToggleMenu {
     hide() {
         this.hamburger.style.pointerEvents = "none";
 
-        this.body.classList.remove('overflow-hidden');
+        // When the menu is disable scroll to place where user been
+        this.scrollY = this.body.style.top;
+        this.body.style.position = '';
+        this.body.style.top = '';
+        window.scrollTo(0, parseInt(this.scrollY || '0') * -1);
+
         this.nav.classList.add('nav--close');
         this.nav.classList.remove('hamburger--active');
 
