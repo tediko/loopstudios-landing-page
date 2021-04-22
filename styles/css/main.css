@@ -153,6 +153,9 @@ i {
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../../assets/images/desktop/image-hero.jpg");
   }
 }
+.kv.nav-scroll {
+  padding-top: 96px;
+}
 .kv__container {
   max-width: 1110px;
   width: 100%;
@@ -184,15 +187,27 @@ i {
   }
 }
 
-.header {
+.header.nav-scroll {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: black;
+}
+.header.nav-scroll .header__container {
+  padding: 15px 8px;
+}
+.header__container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 8px;
 }
-@media (min-width: 1025px) {
-  .header {
+@media (min-width: 769px) {
+  .header__container {
     padding: 0;
+    max-width: 1110px;
+    margin: 0 auto;
   }
 }
 .header__logo-link {
