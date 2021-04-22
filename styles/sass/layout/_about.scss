@@ -1,3 +1,5 @@
+@use '../utilities/' as *;
+
 .about {
     $root: &;
     padding: 96px 24px;

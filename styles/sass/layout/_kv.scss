@@ -1,3 +1,5 @@
+@use '../utilities/' as *;
+
 .kv {
     $root: &;
     position: relative;
