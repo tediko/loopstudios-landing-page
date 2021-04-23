@@ -491,11 +491,28 @@ i {
   display: flex;
   align-items: flex-end;
   height: 120px;
-  padding: 20px;
+  opacity: 0;
+  /* Select .creations__gallery-text in 4th card */
+  /* Tone down the animation to avoid vestibular motion triggers */
 }
 @media (min-width: 769px) {
   .creations__gallery-card {
     height: 160px;
+  }
+  .creations__gallery-card:hover .creations__gallery-effect::after {
+    opacity: 1;
+  }
+  .creations__gallery-card:hover .creations__gallery-effect::before {
+    opacity: 0;
+  }
+  .creations__gallery-card:hover .creations__gallery-caption::after {
+    animation: card-shine 1s;
+  }
+  .creations__gallery-card:hover .creations__gallery-caption::before {
+    transform: scale(1.05) rotate(1deg);
+  }
+  .creations__gallery-card:hover .creations__gallery-text {
+    color: black;
   }
 }
 @media (min-width: 1025px) {
@@ -503,76 +520,31 @@ i {
     height: 450px;
   }
 }
-.creations .bg-pos, .creations .creations__gallery-card--8, .creations .creations__gallery-card--7, .creations .creations__gallery-card--6, .creations .creations__gallery-card--5, .creations .creations__gallery-card--4, .creations .creations__gallery-card--3, .creations .creations__gallery-card--2, .creations .creations__gallery-card--1 {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-.creations__gallery-card--1 {
-  background: url("../../assets/images/mobile/image-deep-earth.jpg");
-}
 @media (min-width: 1025px) {
-  .creations__gallery-card--1 {
-    background: url("../../assets/images/desktop/image-deep-earth.jpg");
+  .creations__gallery-card:nth-child(4) .creations__gallery-text {
+    width: 128px;
   }
 }
-.creations__gallery-card--2 {
-  background: url("../../assets/images/mobile/image-night-arcade.jpg");
+.creations__gallery-card.card-anim {
+  animation: card-slide-mobile 700ms ease-in forwards;
 }
-@media (min-width: 1025px) {
-  .creations__gallery-card--2 {
-    background: url("../../assets/images/desktop/image-night-arcade.jpg");
+@media (min-width: 769px) {
+  .creations__gallery-card.card-anim {
+    animation: card-slide-desktop 700ms ease-in forwards;
   }
 }
-.creations__gallery-card--3 {
-  background: url("../../assets/images/mobile/image-soccer-team.jpg");
-}
-@media (min-width: 1025px) {
-  .creations__gallery-card--3 {
-    background: url("../../assets/images/desktop/image-soccer-team.jpg");
+@media (prefers-reduced-motion) {
+  .creations__gallery-card.card-anim {
+    animation-name: dissolve;
+    opacity: 1;
   }
 }
-.creations__gallery-card--4 {
-  background: url("../../assets/images/mobile/image-grid.jpg");
+.creations__gallery-effect {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
-@media (min-width: 1025px) {
-  .creations__gallery-card--4 {
-    background: url("../../assets/images/desktop/image-grid.jpg");
-  }
-}
-.creations__gallery-card--5 {
-  background: url("../../assets/images/mobile/image-from-above.jpg");
-}
-@media (min-width: 1025px) {
-  .creations__gallery-card--5 {
-    background: url("../../assets/images/desktop/image-from-above.jpg");
-  }
-}
-.creations__gallery-card--6 {
-  background: url("../../assets/images/mobile/image-pocket-borealis.jpg");
-}
-@media (min-width: 1025px) {
-  .creations__gallery-card--6 {
-    background: url("../../assets/images/desktop/image-pocket-borealis.jpg");
-  }
-}
-.creations__gallery-card--7 {
-  background: url("../../assets/images/mobile/image-curiosity.jpg");
-}
-@media (min-width: 1025px) {
-  .creations__gallery-card--7 {
-    background: url("../../assets/images/desktop/image-curiosity.jpg");
-  }
-}
-.creations__gallery-card--8 {
-  background: url("../../assets/images/mobile/image-fisheye.jpg");
-}
-@media (min-width: 1025px) {
-  .creations__gallery-card--8 {
-    background: url("../../assets/images/desktop/image-fisheye.jpg");
-  }
-}
-.creations__gallery-card-img::before {
+.creations__gallery-effect::before {
   position: absolute;
   content: "";
   top: 0;
@@ -584,31 +556,52 @@ i {
   transition: opacity 250ms ease-in;
 }
 @media (min-width: 1025px) {
-  .creations__gallery-card-img::before {
+  .creations__gallery-effect::before {
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
   }
 }
+.creations__gallery-effect::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.7);
+  opacity: 0;
+  transition: opacity 600ms ease-in;
+  z-index: 1;
+}
 .creations__gallery-caption {
   display: block;
-  font-size: 1.6rem;
-  line-height: 1.6rem;
-  text-transform: uppercase;
-  text-decoration: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   color: white;
-  width: 128px;
+  overflow: hidden;
+  z-index: 5;
   transition: color 400ms ease-in;
   outline: none;
 }
-@media (min-width: 1025px) {
-  .creations__gallery-caption {
-    font-size: 2.13rem;
-    line-height: 2.13rem;
-    width: 168px;
-  }
-}
-.creations__gallery-caption:focus::before {
+.creations__gallery-caption:focus {
   outline: 2px dotted black;
   outline-offset: 2px;
+}
+.creations__gallery-caption::after {
+  position: absolute;
+  display: block;
+  content: "";
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+  -webkit-transform: skewX(-25deg);
+  transform: skewX(-25deg);
+  z-index: 2;
 }
 .creations__gallery-caption::before {
   position: absolute;
@@ -617,6 +610,97 @@ i {
   left: 0;
   width: 100%;
   height: 100%;
+  transition: transform 500ms ease-in;
+}
+.creations__gallery-caption .bg-pos, .creations__gallery-caption .creations__gallery-caption--8::before, .creations__gallery-caption .creations__gallery-caption--7::before, .creations__gallery-caption .creations__gallery-caption--6::before, .creations__gallery-caption .creations__gallery-caption--5::before, .creations__gallery-caption .creations__gallery-caption--4::before, .creations__gallery-caption .creations__gallery-caption--3::before, .creations__gallery-caption .creations__gallery-caption--2::before, .creations__gallery-caption .creations__gallery-caption--1::before {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.creations__gallery-caption--1::before {
+  background: url("../../assets/images/mobile/image-deep-earth.jpg");
+}
+@media (min-width: 1025px) {
+  .creations__gallery-caption--1::before {
+    background: url("../../assets/images/desktop/image-deep-earth.jpg");
+  }
+}
+.creations__gallery-caption--2::before {
+  background: url("../../assets/images/mobile/image-night-arcade.jpg");
+}
+@media (min-width: 1025px) {
+  .creations__gallery-caption--2::before {
+    background: url("../../assets/images/desktop/image-night-arcade.jpg");
+  }
+}
+.creations__gallery-caption--3::before {
+  background: url("../../assets/images/mobile/image-soccer-team.jpg");
+}
+@media (min-width: 1025px) {
+  .creations__gallery-caption--3::before {
+    background: url("../../assets/images/desktop/image-soccer-team.jpg");
+  }
+}
+.creations__gallery-caption--4::before {
+  background: url("../../assets/images/mobile/image-grid.jpg");
+}
+@media (min-width: 1025px) {
+  .creations__gallery-caption--4::before {
+    background: url("../../assets/images/desktop/image-grid.jpg");
+  }
+}
+.creations__gallery-caption--5::before {
+  background: url("../../assets/images/mobile/image-from-above.jpg");
+}
+@media (min-width: 1025px) {
+  .creations__gallery-caption--5::before {
+    background: url("../../assets/images/desktop/image-from-above.jpg");
+  }
+}
+.creations__gallery-caption--6::before {
+  background: url("../../assets/images/mobile/image-pocket-borealis.jpg");
+}
+@media (min-width: 1025px) {
+  .creations__gallery-caption--6::before {
+    background: url("../../assets/images/desktop/image-pocket-borealis.jpg");
+  }
+}
+.creations__gallery-caption--7::before {
+  background: url("../../assets/images/mobile/image-curiosity.jpg");
+}
+@media (min-width: 1025px) {
+  .creations__gallery-caption--7::before {
+    background: url("../../assets/images/desktop/image-curiosity.jpg");
+  }
+}
+.creations__gallery-caption--8::before {
+  background: url("../../assets/images/mobile/image-fisheye.jpg");
+}
+@media (min-width: 1025px) {
+  .creations__gallery-caption--8::before {
+    background: url("../../assets/images/desktop/image-fisheye.jpg");
+  }
+}
+.creations__gallery-text {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  width: 128px;
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 400ms ease-in;
+  z-index: 10;
+}
+@media (min-width: 1025px) {
+  .creations__gallery-text {
+    width: 168px;
+    bottom: 32px;
+    left: 40px;
+    font-size: 2.13rem;
+    line-height: 2.13rem;
+  }
 }
 .creations__btn {
   position: relative;
