@@ -488,92 +488,91 @@ i {
 }
 .creations__gallery-card {
   position: relative;
-  overflow: hidden;
-  opacity: 0;
-  /* Tone down the animation to avoid vestibular motion triggers */
+  display: flex;
+  align-items: flex-end;
+  height: 120px;
+  padding: 20px;
 }
 @media (min-width: 769px) {
-  .creations__gallery-card:hover::before {
-    opacity: 1;
-  }
-  .creations__gallery-card:hover .creations__gallery-figure::after {
-    animation: card-shine 1s;
-  }
-  .creations__gallery-card:hover .creations__gallery-figure::before {
-    opacity: 0;
-  }
-  .creations__gallery-card:hover .creations__gallery-image {
-    transform: scale(1.05) rotateZ(1deg);
-  }
-  .creations__gallery-card:hover .creations__gallery-caption {
-    color: black;
-  }
-  .creations__gallery-card::before {
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.7);
-    opacity: 0;
-    transition: opacity 600ms ease-in;
-    z-index: 1;
+  .creations__gallery-card {
+    height: 160px;
   }
 }
 @media (min-width: 1025px) {
-  .creations__gallery-card:nth-child(4) .creations__gallery-caption {
-    width: 128px;
+  .creations__gallery-card {
+    height: 450px;
   }
 }
-.creations__gallery-card:focus {
-  outline: 2px dotted black;
-  outline-offset: 2px;
+.creations .bg-pos, .creations .creations__gallery-card--8, .creations .creations__gallery-card--7, .creations .creations__gallery-card--6, .creations .creations__gallery-card--5, .creations .creations__gallery-card--4, .creations .creations__gallery-card--3, .creations .creations__gallery-card--2, .creations .creations__gallery-card--1 {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
-.creations__gallery-card.card-anim {
-  animation: card-slide-mobile 700ms ease-in forwards;
-}
-@media (min-width: 769px) {
-  .creations__gallery-card.card-anim {
-    animation: card-slide-desktop 700ms ease-in forwards;
-  }
-}
-@media (prefers-reduced-motion) {
-  .creations__gallery-card.card-anim {
-    animation-name: dissolve;
-    opacity: 1;
-  }
-}
-.creations__gallery-figure {
-  position: relative;
-  height: 100%;
-  max-height: 120px;
-}
-@media (min-width: 769px) {
-  .creations__gallery-figure {
-    max-height: 160px;
-  }
-  .creations__gallery-figure::after {
-    position: absolute;
-    display: block;
-    content: "";
-    top: 0;
-    left: -90%;
-    width: 50%;
-    height: 100%;
-    background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
-    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
-    -webkit-transform: skewX(-25deg);
-    transform: skewX(-25deg);
-    z-index: 2;
-  }
+.creations__gallery-card--1 {
+  background: url("../../assets/images/mobile/image-deep-earth.jpg");
 }
 @media (min-width: 1025px) {
-  .creations__gallery-figure {
-    max-height: 450px;
+  .creations__gallery-card--1 {
+    background: url("../../assets/images/desktop/image-deep-earth.jpg");
   }
 }
-.creations__gallery-figure::before {
+.creations__gallery-card--2 {
+  background: url("../../assets/images/mobile/image-night-arcade.jpg");
+}
+@media (min-width: 1025px) {
+  .creations__gallery-card--2 {
+    background: url("../../assets/images/desktop/image-night-arcade.jpg");
+  }
+}
+.creations__gallery-card--3 {
+  background: url("../../assets/images/mobile/image-soccer-team.jpg");
+}
+@media (min-width: 1025px) {
+  .creations__gallery-card--3 {
+    background: url("../../assets/images/desktop/image-soccer-team.jpg");
+  }
+}
+.creations__gallery-card--4 {
+  background: url("../../assets/images/mobile/image-grid.jpg");
+}
+@media (min-width: 1025px) {
+  .creations__gallery-card--4 {
+    background: url("../../assets/images/desktop/image-grid.jpg");
+  }
+}
+.creations__gallery-card--5 {
+  background: url("../../assets/images/mobile/image-from-above.jpg");
+}
+@media (min-width: 1025px) {
+  .creations__gallery-card--5 {
+    background: url("../../assets/images/desktop/image-from-above.jpg");
+  }
+}
+.creations__gallery-card--6 {
+  background: url("../../assets/images/mobile/image-pocket-borealis.jpg");
+}
+@media (min-width: 1025px) {
+  .creations__gallery-card--6 {
+    background: url("../../assets/images/desktop/image-pocket-borealis.jpg");
+  }
+}
+.creations__gallery-card--7 {
+  background: url("../../assets/images/mobile/image-curiosity.jpg");
+}
+@media (min-width: 1025px) {
+  .creations__gallery-card--7 {
+    background: url("../../assets/images/desktop/image-curiosity.jpg");
+  }
+}
+.creations__gallery-card--8 {
+  background: url("../../assets/images/mobile/image-fisheye.jpg");
+}
+@media (min-width: 1025px) {
+  .creations__gallery-card--8 {
+    background: url("../../assets/images/desktop/image-fisheye.jpg");
+  }
+}
+.creations__gallery-card-img::before {
   position: absolute;
   content: "";
   top: 0;
@@ -585,37 +584,39 @@ i {
   transition: opacity 250ms ease-in;
 }
 @media (min-width: 1025px) {
-  .creations__gallery-figure::before {
+  .creations__gallery-card-img::before {
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
   }
 }
 .creations__gallery-caption {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
+  display: block;
   font-size: 1.6rem;
   line-height: 1.6rem;
   text-transform: uppercase;
+  text-decoration: none;
   color: white;
   width: 128px;
-  z-index: 5;
   transition: color 400ms ease-in;
+  outline: none;
 }
 @media (min-width: 1025px) {
   .creations__gallery-caption {
-    bottom: 32px;
-    left: 40px;
     font-size: 2.13rem;
     line-height: 2.13rem;
     width: 168px;
   }
 }
-.creations__gallery-image {
+.creations__gallery-caption:focus::before {
+  outline: 2px dotted black;
+  outline-offset: 2px;
+}
+.creations__gallery-caption::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transform: scale(1);
-  transition: transform 500ms ease-in;
 }
 .creations__btn {
   position: relative;
