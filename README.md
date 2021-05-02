@@ -16,7 +16,7 @@
 ## Overview
 
 ### Intro
-Hello! This is my solution to [Todo App - Frontend Mentor](https://www.frontendmentor.io/challenges/loopstudios-landing-page-N88J5Onjw) challenge. That was a simple and fun challenge, although there was room to try new things and learn something new. 
+Hello! This is my solution to [Loopstudios landing page - Frontend Mentor](https://www.frontendmentor.io/challenges/loopstudios-landing-page-N88J5Onjw) challenge. That was a simple and fun challenge, although there was room to try new things and learn something new. 
 
 ### The challenge
 
