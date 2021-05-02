@@ -57,6 +57,6 @@ Hello! This is my solution to [Todo App - Frontend Mentor](https://www.frontendm
 - Tried to create more accessible mobile navigation. Used the aria-expanded and aria-controls attributes.
 - As for the Sass part. In the project i used @use since it's recommended to start using this instead of @import that import will be deprecated. 
 
-### Usefull resources
+### Useful resources
  
 - [Video](https://www.youtube.com/watch?v=CR-a8upNjJ0) - Kevin Powell video about @use and @forward. 
